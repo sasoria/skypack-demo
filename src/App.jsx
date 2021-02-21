@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'https://cdn.skypack.dev/react';
 import logo from './logo.svg';
-import './App.css';
+import './App.less';
 
 function App() {
   const [count, setCount] = useState(0);
