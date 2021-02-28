@@ -1,10 +1,12 @@
+const less = require('rollup-plugin-less');
+
 /** @type {import("snowpack").SnowpackUserConfig } */
 module.exports = {
   mount: {
     public: {url: '/', static: true},
     src: {url: '/dist'},
   },
-  plugins: ['@snowpack/plugin-react-refresh', '@snowpack/plugin-dotenv', 'snowpack-plugin-less'],
+  plugins: ['@snowpack/plugin-react-refresh', '@snowpack/plugin-dotenv', "snowpack-plugin-less" ],
   routes: [
     /* Enable an SPA Fallback in development: */
     // {"match": "routes", "src": ".*", "dest": "/index.html"},
@@ -14,7 +16,10 @@ module.exports = {
     // "bundle": true,
   },
   packageOptions: {
-    /* ... */
+    rollup: {
+      entry: 'index.jsx',
+      plugins: [less()],
+    }
   },
   devOptions: {
     /* ... */
